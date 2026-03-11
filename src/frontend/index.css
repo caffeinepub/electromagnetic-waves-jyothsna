@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/assets/fonts/Fraunces.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/assets/fonts/Outfit.woff2') format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.98 0.005 90;
+    --foreground: 0.15 0.03 250;
+    --card: 0.99 0.003 90;
+    --card-foreground: 0.15 0.03 250;
+    --popover: 0.99 0.003 90;
+    --popover-foreground: 0.15 0.03 250;
+    --primary: 0.28 0.09 260;
+    --primary-foreground: 0.98 0.005 90;
+    --secondary: 0.94 0.01 260;
+    --secondary-foreground: 0.28 0.09 260;
+    --muted: 0.93 0.01 260;
+    --muted-foreground: 0.45 0.04 260;
+    --accent: 0.72 0.16 82;
+    --accent-foreground: 0.15 0.05 82;
+    --destructive: 0.55 0.2 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.88 0.02 260;
+    --input: 0.88 0.02 260;
+    --ring: 0.28 0.09 260;
+    --radius: 0.5rem;
+    --chart-1: 0.55 0.15 260;
+    --chart-2: 0.65 0.18 200;
+    --chart-3: 0.72 0.16 82;
+    --chart-4: 0.55 0.18 145;
+    --chart-5: 0.6 0.2 25;
+    --sidebar: 0.22 0.07 260;
+    --sidebar-foreground: 0.92 0.01 260;
+    --sidebar-primary: 0.72 0.16 82;
+    --sidebar-primary-foreground: 0.15 0.05 82;
+    --sidebar-accent: 0.32 0.09 260;
+    --sidebar-accent-foreground: 0.92 0.01 260;
+    --sidebar-border: 0.32 0.07 260;
+    --sidebar-ring: 0.72 0.16 82;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+.nav-link-active {
+  @apply text-accent border-b-2;
+  border-color: oklch(var(--accent));
+}
+
+.wave-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wave-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px oklch(var(--primary) / 0.15);
+}
+
+.quiz-option:hover {
+  background: oklch(var(--secondary));
+}
+.quiz-option.selected {
+  background: oklch(var(--primary) / 0.1);
+  border-color: oklch(var(--primary));
+}
+.quiz-option.correct {
+  background: oklch(0.85 0.12 145 / 0.25);
+  border-color: oklch(0.5 0.18 145);
+}
+.quiz-option.incorrect {
+  background: oklch(0.9 0.08 25 / 0.25);
+  border-color: oklch(0.55 0.2 25);
+}
